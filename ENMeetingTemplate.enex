@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export2.dtd">
+<en-export export-date="20130521T041413Z" application="Evernote" version="Evernote Mac 5.0.7 (400993)">
+<note><title>Meeting Template</title><content><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;">
+<u>Attendees</u>
+<div><br/></div>
+<div><br/></div>
+<div><u>Agenda</u></div>
+<div><br/></div>
+<div><br/></div>
+<div><u>Discussion</u></div>
+<div><u><br/></u></div>
+<div><u><br/></u></div>
+<div><u>Action Items</u></div>
+</en-note>
+]]></content><created>20130521T041209Z</created><updated>20130521T041349Z</updated><note-attributes><latitude>40.79653904293222</latitude><longitude>-73.97324707649955</longitude><altitude>35.80210876464844</altitude><author>jbenlinlee</author></note-attributes></note>
+</en-export>
