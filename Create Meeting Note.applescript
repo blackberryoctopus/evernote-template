@@ -18,12 +18,16 @@ tell application "Evernote"
 		set currentTime to time string of (current date)
 		set currentSeconds to time of (current date)
 		set currentHour to round (currentSeconds / 60 / 60) rounding down
+		set currentHalfHour to currentHour * 60 * 60 + 30 * 60
 		
 		
 		--round down to nearest hour; most likely start time for mtg
-		set roundedDate to current date
-		set time of roundedDate to currentHour * 60 * 60
+		set roundedHourDate to current date
+		set time of roundedHourDate to currentHour * 60 * 60
 		
+		--round down to nearest half hour; 2nd most likely start time for mtg
+		set roundedHalfHourDate to roundedHourDate
+		set time of roundedHalfHourDate to currentHalfHour
 		
 		
 		--reverse the list so the dates descend; this makes finding the current date and current meeting much much faster in the loop
@@ -33,7 +37,7 @@ tell application "Evernote"
 		repeat with anEvent in reverseEvents
 			
 			set eventStartTime to start time of anEvent
-			if (eventStartTime = roundedDate) then
+			if (eventStartTime = roundedHourDate or eventStartTime = roundedHalfHourDate) then
 				set theCurrentEvent to anEvent
 				set eventSubject to (subject of theCurrentEvent)
 				set attendeeList to attendees of theCurrentEvent
