@@ -16,7 +16,7 @@ tell application "Microsoft Outlook"
 	
 	set calendarEvents to calendar events whose start time ³ targetDate
 	repeat with anEvent in calendarEvents
-		-- log "Checking event with subj=" & (subject of anEvent) & " / start=" & (start time of anEvent)
+		log "Checking event with subj=" & (subject of anEvent) & " / start=" & (start time of anEvent)
 		
 		if (start time of anEvent = targetDate) then
 			set eventSubject to (subject of anEvent)
@@ -37,7 +37,7 @@ tell application "Microsoft Outlook"
 end tell
 
 tell application "Evernote"
-	set importedNotes to import POSIX file "/Users/jlee/src/evernote-template/ENMeetingTemplate.enex" to "FreeWheel (JBL)"
+	set importedNotes to import POSIX file "/Users/gsogorka/ENMeetingTemplate.enex" to "FreeWheel"
 	set newNote to item 1 of importedNotes
 	
 	-- Some date gymnastics
