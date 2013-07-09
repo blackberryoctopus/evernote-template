@@ -5,7 +5,7 @@ end date_format
 
 -- Format current date into "yyyy.mm.dd" for note title
 set noteDate to date_format(current date)
-	
+
 set foundOutlookEvent to false
 
 tell application "Microsoft Outlook"
@@ -14,17 +14,11 @@ tell application "Microsoft Outlook"
 	set targetDate to current date
 	set time of targetDate to (nearestHalfHour * 1800)
 	
-	--reverse the list so the dates descend; this makes finding the current date and current meeting much much faster in the loop
-	set calendarEvents to calendar events
-	set reverseEvents to reverse of calendarEvents
-	repeat with anEvent in reverseEvents
-		log "Checking event with subj=" & (subject of anEvent) & " / start=" & (start time of anEvent)
+	set calendarEvents to calendar events whose start time ³ targetDate
+	repeat with anEvent in calendarEvents
+		-- log "Checking event with subj=" & (subject of anEvent) & " / start=" & (start time of anEvent)
 		
-		set eventStartTime to start time of anEvent
-		if (eventStartTime < targetDate) then
-			exit repeat
-		else if (eventStartTime = targetDate) then
-			--set theCurrentEvent to anEvent
+		if (start time of anEvent = targetDate) then
 			set eventSubject to (subject of anEvent)
 			set attendeeList to attendees of anEvent
 			set attendeeEmails to {}
